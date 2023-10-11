@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="img/MAMBA.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAMBA WEB | @16alves02</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="background-container">
+    <nav id="navbar">
+        <ul> 
+            <a href="index.html">
+                <img src="img/Mamba.png" alt="Kobe Bryant Logo">
+            </a>  
+            <li><a href="index.html">Biography</a></li>
+            <li><a href="index.html">Achievements</a></li>
+            <li><a href="index.html">Photos</a></li>
+            <li><a href="biography-timeline.html">Timeline</a></li>
+            <li><a href="interactive-quiz.html">Quiz</a></li>
+        </ul>
+    </nav>
+    
+    <section id="timeline" class="content timeline">
+        <h2>Kobe Bryant's Biography Timeline</h2>
+        <div id="timeline-container"></div>
+    </section>
+
+    <script>
+        const timelineContainer = document.getElementById('timeline-container');
+    
+        const events = [
+            { year: '1978', description: 'Kobe Bryant is born in Philadelphia, PA.' },
+            { year: 'High School', description: 'Kobe Bryant leads Lower Merion High School to a state championship.' },
+            { year: '1996', description: 'Kobe enters the NBA as the 13th overall pick.' },
+            { year: '1997', description: 'Wins the Slam Dunk Contest during All-Star Weekend.' },
+            { year: '1999 - 2002', description: 'Phil Jackson arrives, and the Lakers win a three-peat.' },
+            { year: '2004', description: 'Fallout with Shaq; O\'Neal is traded, and Bryant re-signs with the Lakers.' },
+            { year: '2005', description: 'Phil Jackson returns as head coach.' },
+            { year: '2006', description: 'Scores a career-high 81 points in a game against the Toronto Raptors.' },
+            { year: '2008', description: 'Wins a gold medal with Team USA at the Beijing Olympics.' },
+            { year: '2008 - 2010', description: 'Returns to championship form with Lakers.' },
+            { year: '2012', description: 'Wins his final Olympic gold medal at the London Olympics.' },
+            { year: '2016', description: 'Retirement and scoring 60 points in his final NBA game.' },
+            { year: '2017', description: 'Jersey retirement by the Lakers.' },
+            { year: '2018', description: 'Wins an Oscar for Best Animated Short Film for "Dear Basketball".' },
+            { year: '2020', description: 'Kobe Bryant tragically passes away in a helicopter crash.' },
+        ];
+    
+        events.forEach(event => {
+            const eventElement = document.createElement('div');
+            eventElement.className = 'event';
+            eventElement.innerHTML = `
+            <div class="year"><span class="year-text">${event.year}</span></div>
+            <div class="description">${event.description}</div>
+        `;
+            timelineContainer.appendChild(eventElement);
+        });
+    </script>   
+
+    <footer>
+        <div id="social-media">
+            <h2>My Socials</h2>
+            <ul>
+                <li><a href="https://www.instagram.com/16alves02/" target="_blank"><span class="icon instagram"></span> Instagram</a></li>
+                <li><a href="https://twitter.com/16alves02/" target="_blank"><span class="icon twitter"></span> Twitter</a></li>
+                <li><a href="https://github.com/16alves02" target="_blank"><span class="icon github"></span> GitHub</a></li>
+                <li><a href="https://www.tiktok.com/@16alves02" target="_blank"><span class="icon tiktok"></span> TikTok</a></li>
+                <li><a href="https://www.youtube.com/channel/UCZsNoAZ4satDPija_rJhWtg" target="_blank"><span class="icon youtube"></span> YouTube</a></li>
+            </ul>
+        </div>
+    </footer>           
+</body>
+</html>

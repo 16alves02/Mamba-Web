@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="img/MAMBA.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAMBA WEB | @16alves02</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="background-container">
+    <nav id="navbar">
+        <ul>
+            <a href="index.html">
+                <img src="img/Mamba.png" alt="Kobe Bryant Logo">
+            </a>   
+            <li><a href="index.html">Biography</a></li>
+            <li><a href="index.html">Achievements</a></li>
+            <li><a href="index.html">Photos</a></li>
+            <li><a href="biography-timeline.html">Timeline</a></li>
+            <li><a href="interactive-quiz.html">Quiz</a></li>
+        </ul>
+    </nav>
+    
+    <section id="quiz" class="content quiz">
+        <h2>Kobe Bryant Quiz</h2>
+        <div id="quiz-questions">
+            <!-- Questions will be added here using JavaScript -->
+        </div>
+        <button id="quiz-submit">Submit</button>
+        <div id="quiz-results"></div>
+    </section>
+
+    <script>
+        const questions = [
+            {
+                question: 'What year did Kobe Bryant enter the NBA?',
+                answers: ['1996', '1999', '2003'],
+                correctAnswer: '1996'
+            },
+            {
+                question: 'How many NBA championships did Kobe win during his career?',
+                answers: ['3', '5', '7'],
+                correctAnswer: '5'
+            },
+            {
+                question: 'What is Kobe Bryant\'s career high in points in a single NBA game?',
+                answers: ['61', '71', '81'],
+                correctAnswer: '81'
+            },
+            {
+                question: 'Which team drafted Kobe Bryant in 1996?',
+                answers: ['Los Angeles Lakers', 'Charlotte Hornets', 'Philadelphia 76ers'],
+                correctAnswer: 'Charlotte Hornets'
+            },
+            {
+                question: 'What was Kobe Bryant\'s nickname?',
+                answers: ['Mamba', 'Black Mamba', 'Kobe Bean'],
+                correctAnswer: 'Black Mamba'
+            },
+            {
+                question: 'How many NBA MVP awards did Kobe Bryant win?',
+                answers: ['0', '1', '2'],
+                correctAnswer: '1'
+            },
+            {
+                question: 'Who was Kobe\'s longtime head coach with the Lakers?',
+                answers: ['Phil Jackson', 'Pat Riley', 'Mike Brown'],
+                correctAnswer: 'Phil Jackson'
+            },
+            {
+                question: 'Which player was Kobe Bryant often compared to throughout his career?',
+                answers: ['Michael Jordan', 'Magic Johnson', 'Larry Bird'],
+                correctAnswer: 'Michael Jordan'
+            },
+            {
+                question: 'In which city was Kobe Bryant born?',
+                answers: ['Philadelphia', 'Los Angeles', 'Chicago'],
+                correctAnswer: 'Philadelphia'
+            },
+            {
+                question: 'What is the name of the documentary that Kobe Bryant won an Academy Award for?',
+                answers: ['Dear Basketball', 'Mamba Mentality', 'Kobe: A Legacy'],
+                correctAnswer: 'Dear Basketball'
+            },
+            {
+                question: 'How many times did Kobe Bryant lead the league in scoring (win the scoring title)?',
+                answers: ['5', '7', '9'],
+                correctAnswer: '2'
+            },
+            {
+                question: 'What was the title of Kobe Bryant\'s 2018 autobiography?',
+                answers: ['Mamba Mentality', 'The Black Mamba', 'The Kobe Chronicles'],
+                correctAnswer: 'Mamba Mentality'
+            },
+            {
+                question: 'What number(s) did Kobe Bryant wear during his NBA career?',
+                answers: ['8', '24', 'Both 8 and 24'],
+                correctAnswer: 'Both 8 and 24'
+            },
+            {
+                question: 'Which NBA team did Kobe Bryant score 81 points against in a single game?',
+                answers: ['Toronto Raptors', 'Houston Rockets', 'Golden State Warriors'],
+                correctAnswer: 'Toronto Raptors'
+            },
+            {
+                question: 'What is the name of Kobe Bryant\'s first Nike signature shoe?',
+                answers: ['Kobe 1', 'Air Kobe', 'Kobe Zoom'],
+                correctAnswer: 'Kobe 1'
+            },
+            {
+                question: 'How many Olympic gold medals did Kobe Bryant win with Team USA?',
+                answers: ['1', '2', '3'],
+                correctAnswer: '2'
+            },
+            {
+                question: 'What was the last NBA team Kobe Bryant played against in his career?',
+                answers: ['Utah Jazz', 'Los Angeles Clippers', 'Phoenix Suns'],
+                correctAnswer: 'Utah Jazz'
+            },
+            {
+                question: 'What was Kobe Bryant\'s middle name?',
+                answers: ['Bean', 'Bryant', 'Mamba'],
+                correctAnswer: 'Bean'
+            },
+            {
+                question: 'Which high school did Kobe Bryant attend in Philadelphia?',
+                answers: ['Lower Merion High School', 'Central High School', 'West Catholic Prep'],
+                correctAnswer: 'Lower Merion High School'
+            },
+            {
+                question: 'What is the name of Kobe Bryant\'s Oscar-winning animated short film?',
+                answers: ['Dear Basketball', 'Mamba Legacy', 'Chasing Greatness'],
+                correctAnswer: 'Dear Basketball'
+            },
+            {
+                question: 'What did Kobe Bryant\'s "Mamba Mentality" represent?',
+                answers: ['Relentless work ethic and competitiveness', 'Zen meditation', 'Love for snakes'],
+                correctAnswer: 'Relentless work ethic and competitiveness'
+            },
+            {
+                question: 'Which NBA team originally drafted Kobe Bryant but then traded him to the Lakers?',
+                answers: ['Charlotte Hornets', 'Chicago Bulls', 'Orlando Magic'],
+                correctAnswer: 'Charlotte Hornets'
+            },
+            {
+                question: 'How many NBA All-Star selections did Kobe Bryant have?',
+                answers: ['15', '18', '20'],
+                correctAnswer: '18'
+            },
+            {
+                question: 'What is the title of the documentary that Kobe Bryant won an Academy Award for?',
+                answers: ['Dear Basketball', 'Kobe: A Legend', 'Mamba Forever'],
+                correctAnswer: 'Dear Basketball'
+            }
+        ];
+
+        const quizQuestions = document.getElementById('quiz-questions');
+        const quizSubmit = document.getElementById('quiz-submit');
+        const quizResults = document.getElementById('quiz-results');
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function showQuestion(index) {
+            const question = questions[index];
+            const questionElement = document.createElement('div');
+            questionElement.className = 'question';
+            questionElement.innerHTML = `
+                <p>${index + 1}. ${question.question}</p>
+                ${question.answers.map((answer, answerIndex) => `
+                    <label>
+                        <input type="radio" name="q${index}" value="${answer}"> ${String.fromCharCode(97 + answerIndex)}. ${answer}
+                    </label>
+                `).join('')}
+            `;
+            quizQuestions.innerHTML = '';
+            quizQuestions.appendChild(questionElement);
+        }
+
+        showQuestion(currentQuestionIndex);
+
+        quizSubmit.addEventListener('click', () => {
+            const selectedAnswer = document.querySelector(`input[name="q${currentQuestionIndex}"]:checked`);
+            if (selectedAnswer) {
+                if (selectedAnswer.value === questions[currentQuestionIndex].correctAnswer) {
+                    score++;
+                }
+                currentQuestionIndex++;
+                if (currentQuestionIndex < questions.length) {
+                    showQuestion(currentQuestionIndex);
+                } else {
+                    const resultMessage = `You scored ${score} out of ${questions.length}.`;
+                    quizResults.textContent = resultMessage;
+                }
+            }
+        });
+        
+    </script>
+    </div>
+    <footer>
+        <div id="social-media">
+            <h2>My Socials</h2>
+            <ul>
+                <li><a href="https://www.instagram.com/16alves02/" target="_blank"><span class="icon instagram"></span> Instagram</a></li>
+                <li><a href="https://twitter.com/16alves02/" target="_blank"><span class="icon twitter"></span> Twitter</a></li>
+                <li><a href="https://github.com/16alves02" target="_blank"><span class="icon github"></span> GitHub</a></li>
+                <li><a href="https://www.tiktok.com/@16alves02" target="_blank"><span class="icon tiktok"></span> TikTok</a></li>
+                <li><a href="https://www.youtube.com/channel/UCZsNoAZ4satDPija_rJhWtg" target="_blank"><span class="icon youtube"></span> YouTube</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
